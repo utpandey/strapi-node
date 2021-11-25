@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "name": "Event",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "event_flag": {
+      "pluginOptions": {},
+      "type": "enumeration",
+      "enum": [
+        "internal",
+        "external"
+      ],
+      "required": true
+    },
+    "event_date": {
+      "type": "date",
+      "required": true
+    },
+    "event_owner": {
+      "model": "employee"
+    }
+  }
+}

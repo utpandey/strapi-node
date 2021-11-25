@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "name": "Project",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "proj_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "proj_emps": {
+      "via": "emp_proj",
+      "collection": "employee",
+      "dominant": true
+    },
+    "proj_client": {
+      "model": "client"
+    },
+    "proj_state": {
+      "type": "enumeration",
+      "enum": [
+        "stage1",
+        "stage2",
+        "stage3",
+        "stage4"
+      ],
+      "required": true,
+      "default": "stage1"
+    },
+    "proj_lead": {
+      "model": "employee"
+    },
+    "proj_start": {
+      "type": "date",
+      "required": true
+    },
+    "proj_end": {
+      "type": "date",
+      "required": true
+    },
+    "proj_pod": {
+      "via": "pod_proj",
+      "model": "pod"
+    }
+  }
+}

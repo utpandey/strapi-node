@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "allocations",
+  "info": {
+    "name": "allocation",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "alloc_percentage": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "max": 100,
+      "min": 0
+    },
+    "alloc_start": {
+      "type": "date",
+      "required": true
+    },
+    "alloc_end": {
+      "type": "date",
+      "required": true
+    },
+    "alloc_project": {
+      "model": "project"
+    },
+    "alloc_emp": {
+      "via": "emp_allocations",
+      "model": "employee"
+    }
+  }
+}

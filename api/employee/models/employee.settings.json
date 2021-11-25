@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employees",
+  "info": {
+    "name": "employee",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "emp_name": {
+      "type": "string",
+      "required": true
+    },
+    "emp_email": {
+      "type": "email",
+      "required": true
+    },
+    "emp_contact_no": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true
+    },
+    "emp_dob": {
+      "type": "date",
+      "required": true
+    },
+    "emp_role": {
+      "type": "enumeration",
+      "enum": [
+        "Developer",
+        "HR",
+        "QA",
+        "PM",
+        "BA",
+        "Designer"
+      ],
+      "required": true
+    },
+    "emp_proj": {
+      "via": "proj_emps",
+      "collection": "project"
+    },
+    "emp_allocations": {
+      "via": "alloc_emp",
+      "collection": "allocation"
+    },
+    "emp_pod": {
+      "model": "pod",
+      "via": "pod_emp"
+    }
+  }
+}
