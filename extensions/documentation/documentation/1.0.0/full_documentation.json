@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/25/2021 3:11:39 PM"
+    "x-generation-date": "11/29/2021 1:55:41 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5367,9 +5367,12 @@
             "required": [
               "id",
               "proj_name",
-              "proj_state",
+              "proj_stage",
               "proj_start",
-              "proj_end"
+              "proj_end",
+              "proj_resource_haves",
+              "proj_resource_needs",
+              "proj_scope_type"
             ],
             "properties": {
               "id": {
@@ -5387,7 +5390,7 @@
               "proj_client": {
                 "type": "string"
               },
-              "proj_state": {
+              "proj_stage": {
                 "type": "string",
                 "enum": [
                   "stage1",
@@ -5408,6 +5411,15 @@
               "proj_pod": {
                 "type": "string"
               },
+              "proj_resource_haves": {
+                "type": "integer"
+              },
+              "proj_resource_needs": {
+                "type": "integer"
+              },
+              "proj_scope_type": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -5426,7 +5438,15 @@
               "emp_email",
               "emp_contact_no",
               "emp_dob",
-              "emp_role"
+              "emp_department",
+              "emp_designation",
+              "emp_primary_skill",
+              "emp_status",
+              "emp_is_lead",
+              "emp_is_pm",
+              "emp_experience",
+              "emp_relevant_experience",
+              "emp_total_allocation"
             ],
             "properties": {
               "id": {
@@ -5444,7 +5464,7 @@
               "emp_dob": {
                 "type": "string"
               },
-              "emp_role": {
+              "emp_department": {
                 "type": "string",
                 "enum": [
                   "Developer",
@@ -5469,6 +5489,36 @@
               },
               "emp_pod": {
                 "type": "string"
+              },
+              "emp_designation": {
+                "type": "string"
+              },
+              "emp_primary_skill": {
+                "type": "string"
+              },
+              "emp_sec_skill": {
+                "type": "string"
+              },
+              "emp_status": {
+                "type": "string"
+              },
+              "emp_is_lead": {
+                "type": "boolean"
+              },
+              "emp_is_pm": {
+                "type": "boolean"
+              },
+              "emp_experience": {
+                "type": "integer"
+              },
+              "emp_relevant_experience": {
+                "type": "integer"
+              },
+              "emp_total_allocation": {
+                "type": "integer"
+              },
+              "emp_capacity": {
+                "type": "integer"
               },
               "published_at": {
                 "type": "string"
@@ -5527,13 +5577,17 @@
       "Client": {
         "required": [
           "id",
-          "client_name"
+          "client_name",
+          "client_location"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
           "client_name": {
+            "type": "string"
+          },
+          "client_location": {
             "type": "string"
           },
           "published_at": {
@@ -5544,10 +5598,14 @@
       },
       "NewClient": {
         "required": [
-          "client_name"
+          "client_name",
+          "client_location"
         ],
         "properties": {
           "client_name": {
+            "type": "string"
+          },
+          "client_location": {
             "type": "string"
           },
           "published_at": {
@@ -5569,7 +5627,15 @@
           "emp_email",
           "emp_contact_no",
           "emp_dob",
-          "emp_role"
+          "emp_department",
+          "emp_designation",
+          "emp_primary_skill",
+          "emp_status",
+          "emp_is_lead",
+          "emp_is_pm",
+          "emp_experience",
+          "emp_relevant_experience",
+          "emp_total_allocation"
         ],
         "properties": {
           "id": {
@@ -5589,7 +5655,7 @@
             "type": "string",
             "format": "date"
           },
-          "emp_role": {
+          "emp_department": {
             "type": "string",
             "enum": [
               "Developer",
@@ -5606,9 +5672,12 @@
               "required": [
                 "id",
                 "proj_name",
-                "proj_state",
+                "proj_stage",
                 "proj_start",
-                "proj_end"
+                "proj_end",
+                "proj_resource_haves",
+                "proj_resource_needs",
+                "proj_scope_type"
               ],
               "properties": {
                 "id": {
@@ -5626,7 +5695,7 @@
                 "proj_client": {
                   "type": "string"
                 },
-                "proj_state": {
+                "proj_stage": {
                   "type": "string",
                   "enum": [
                     "stage1",
@@ -5645,6 +5714,15 @@
                   "type": "string"
                 },
                 "proj_pod": {
+                  "type": "string"
+                },
+                "proj_resource_haves": {
+                  "type": "integer"
+                },
+                "proj_resource_needs": {
+                  "type": "integer"
+                },
+                "proj_scope_type": {
                   "type": "string"
                 },
                 "published_at": {
@@ -5740,6 +5818,42 @@
               }
             }
           },
+          "emp_designation": {
+            "type": "string"
+          },
+          "emp_primary_skill": {
+            "type": "string"
+          },
+          "emp_sec_skill": {
+            "type": "string"
+          },
+          "emp_status": {
+            "type": "string"
+          },
+          "emp_is_lead": {
+            "type": "boolean",
+            "default": false
+          },
+          "emp_is_pm": {
+            "type": "boolean",
+            "default": false
+          },
+          "emp_experience": {
+            "type": "integer",
+            "default": 0
+          },
+          "emp_relevant_experience": {
+            "type": "integer",
+            "default": 0
+          },
+          "emp_total_allocation": {
+            "type": "integer",
+            "default": 0
+          },
+          "emp_capacity": {
+            "type": "integer",
+            "default": 0
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -5752,7 +5866,15 @@
           "emp_email",
           "emp_contact_no",
           "emp_dob",
-          "emp_role"
+          "emp_department",
+          "emp_designation",
+          "emp_primary_skill",
+          "emp_status",
+          "emp_is_lead",
+          "emp_is_pm",
+          "emp_experience",
+          "emp_relevant_experience",
+          "emp_total_allocation"
         ],
         "properties": {
           "emp_name": {
@@ -5769,7 +5891,7 @@
             "type": "string",
             "format": "date"
           },
-          "emp_role": {
+          "emp_department": {
             "type": "string",
             "enum": [
               "Developer",
@@ -5794,6 +5916,42 @@
           },
           "emp_pod": {
             "type": "string"
+          },
+          "emp_designation": {
+            "type": "string"
+          },
+          "emp_primary_skill": {
+            "type": "string"
+          },
+          "emp_sec_skill": {
+            "type": "string"
+          },
+          "emp_status": {
+            "type": "string"
+          },
+          "emp_is_lead": {
+            "type": "boolean",
+            "default": false
+          },
+          "emp_is_pm": {
+            "type": "boolean",
+            "default": false
+          },
+          "emp_experience": {
+            "type": "integer",
+            "default": 0
+          },
+          "emp_relevant_experience": {
+            "type": "integer",
+            "default": 0
+          },
+          "emp_total_allocation": {
+            "type": "integer",
+            "default": 0
+          },
+          "emp_capacity": {
+            "type": "integer",
+            "default": 0
           },
           "published_at": {
             "type": "string",
@@ -5835,7 +5993,15 @@
               "emp_email",
               "emp_contact_no",
               "emp_dob",
-              "emp_role"
+              "emp_department",
+              "emp_designation",
+              "emp_primary_skill",
+              "emp_status",
+              "emp_is_lead",
+              "emp_is_pm",
+              "emp_experience",
+              "emp_relevant_experience",
+              "emp_total_allocation"
             ],
             "properties": {
               "id": {
@@ -5853,7 +6019,7 @@
               "emp_dob": {
                 "type": "string"
               },
-              "emp_role": {
+              "emp_department": {
                 "type": "string",
                 "enum": [
                   "Developer",
@@ -5878,6 +6044,36 @@
               },
               "emp_pod": {
                 "type": "string"
+              },
+              "emp_designation": {
+                "type": "string"
+              },
+              "emp_primary_skill": {
+                "type": "string"
+              },
+              "emp_sec_skill": {
+                "type": "string"
+              },
+              "emp_status": {
+                "type": "string"
+              },
+              "emp_is_lead": {
+                "type": "boolean"
+              },
+              "emp_is_pm": {
+                "type": "boolean"
+              },
+              "emp_experience": {
+                "type": "integer"
+              },
+              "emp_relevant_experience": {
+                "type": "integer"
+              },
+              "emp_total_allocation": {
+                "type": "integer"
+              },
+              "emp_capacity": {
+                "type": "integer"
               },
               "published_at": {
                 "type": "string"
@@ -5946,9 +6142,12 @@
               "required": [
                 "id",
                 "proj_name",
-                "proj_state",
+                "proj_stage",
                 "proj_start",
-                "proj_end"
+                "proj_end",
+                "proj_resource_haves",
+                "proj_resource_needs",
+                "proj_scope_type"
               ],
               "properties": {
                 "id": {
@@ -5966,7 +6165,7 @@
                 "proj_client": {
                   "type": "string"
                 },
-                "proj_state": {
+                "proj_stage": {
                   "type": "string",
                   "enum": [
                     "stage1",
@@ -5985,6 +6184,15 @@
                   "type": "string"
                 },
                 "proj_pod": {
+                  "type": "string"
+                },
+                "proj_resource_haves": {
+                  "type": "integer"
+                },
+                "proj_resource_needs": {
+                  "type": "integer"
+                },
+                "proj_scope_type": {
                   "type": "string"
                 },
                 "published_at": {
@@ -6006,7 +6214,15 @@
               "emp_email",
               "emp_contact_no",
               "emp_dob",
-              "emp_role"
+              "emp_department",
+              "emp_designation",
+              "emp_primary_skill",
+              "emp_status",
+              "emp_is_lead",
+              "emp_is_pm",
+              "emp_experience",
+              "emp_relevant_experience",
+              "emp_total_allocation"
             ],
             "properties": {
               "id": {
@@ -6024,7 +6240,7 @@
               "emp_dob": {
                 "type": "string"
               },
-              "emp_role": {
+              "emp_department": {
                 "type": "string",
                 "enum": [
                   "Developer",
@@ -6049,6 +6265,36 @@
               },
               "emp_pod": {
                 "type": "string"
+              },
+              "emp_designation": {
+                "type": "string"
+              },
+              "emp_primary_skill": {
+                "type": "string"
+              },
+              "emp_sec_skill": {
+                "type": "string"
+              },
+              "emp_status": {
+                "type": "string"
+              },
+              "emp_is_lead": {
+                "type": "boolean"
+              },
+              "emp_is_pm": {
+                "type": "boolean"
+              },
+              "emp_experience": {
+                "type": "integer"
+              },
+              "emp_relevant_experience": {
+                "type": "integer"
+              },
+              "emp_total_allocation": {
+                "type": "integer"
+              },
+              "emp_capacity": {
+                "type": "integer"
               },
               "published_at": {
                 "type": "string"
@@ -6068,7 +6314,15 @@
               "emp_email",
               "emp_contact_no",
               "emp_dob",
-              "emp_role"
+              "emp_department",
+              "emp_designation",
+              "emp_primary_skill",
+              "emp_status",
+              "emp_is_lead",
+              "emp_is_pm",
+              "emp_experience",
+              "emp_relevant_experience",
+              "emp_total_allocation"
             ],
             "properties": {
               "id": {
@@ -6086,7 +6340,7 @@
               "emp_dob": {
                 "type": "string"
               },
-              "emp_role": {
+              "emp_department": {
                 "type": "string",
                 "enum": [
                   "Developer",
@@ -6111,6 +6365,36 @@
               },
               "emp_pod": {
                 "type": "string"
+              },
+              "emp_designation": {
+                "type": "string"
+              },
+              "emp_primary_skill": {
+                "type": "string"
+              },
+              "emp_sec_skill": {
+                "type": "string"
+              },
+              "emp_status": {
+                "type": "string"
+              },
+              "emp_is_lead": {
+                "type": "boolean"
+              },
+              "emp_is_pm": {
+                "type": "boolean"
+              },
+              "emp_experience": {
+                "type": "integer"
+              },
+              "emp_relevant_experience": {
+                "type": "integer"
+              },
+              "emp_total_allocation": {
+                "type": "integer"
+              },
+              "emp_capacity": {
+                "type": "integer"
               },
               "published_at": {
                 "type": "string"
@@ -6132,7 +6416,15 @@
                 "emp_email",
                 "emp_contact_no",
                 "emp_dob",
-                "emp_role"
+                "emp_department",
+                "emp_designation",
+                "emp_primary_skill",
+                "emp_status",
+                "emp_is_lead",
+                "emp_is_pm",
+                "emp_experience",
+                "emp_relevant_experience",
+                "emp_total_allocation"
               ],
               "properties": {
                 "id": {
@@ -6150,7 +6442,7 @@
                 "emp_dob": {
                   "type": "string"
                 },
-                "emp_role": {
+                "emp_department": {
                   "type": "string",
                   "enum": [
                     "Developer",
@@ -6175,6 +6467,36 @@
                 },
                 "emp_pod": {
                   "type": "string"
+                },
+                "emp_designation": {
+                  "type": "string"
+                },
+                "emp_primary_skill": {
+                  "type": "string"
+                },
+                "emp_sec_skill": {
+                  "type": "string"
+                },
+                "emp_status": {
+                  "type": "string"
+                },
+                "emp_is_lead": {
+                  "type": "boolean"
+                },
+                "emp_is_pm": {
+                  "type": "boolean"
+                },
+                "emp_experience": {
+                  "type": "integer"
+                },
+                "emp_relevant_experience": {
+                  "type": "integer"
+                },
+                "emp_total_allocation": {
+                  "type": "integer"
+                },
+                "emp_capacity": {
+                  "type": "integer"
                 },
                 "published_at": {
                   "type": "string"
@@ -6236,9 +6558,12 @@
         "required": [
           "id",
           "proj_name",
-          "proj_state",
+          "proj_stage",
           "proj_start",
-          "proj_end"
+          "proj_end",
+          "proj_resource_haves",
+          "proj_resource_needs",
+          "proj_scope_type"
         ],
         "properties": {
           "id": {
@@ -6256,7 +6581,15 @@
                 "emp_email",
                 "emp_contact_no",
                 "emp_dob",
-                "emp_role"
+                "emp_department",
+                "emp_designation",
+                "emp_primary_skill",
+                "emp_status",
+                "emp_is_lead",
+                "emp_is_pm",
+                "emp_experience",
+                "emp_relevant_experience",
+                "emp_total_allocation"
               ],
               "properties": {
                 "id": {
@@ -6274,7 +6607,7 @@
                 "emp_dob": {
                   "type": "string"
                 },
-                "emp_role": {
+                "emp_department": {
                   "type": "string",
                   "enum": [
                     "Developer",
@@ -6300,6 +6633,36 @@
                 "emp_pod": {
                   "type": "string"
                 },
+                "emp_designation": {
+                  "type": "string"
+                },
+                "emp_primary_skill": {
+                  "type": "string"
+                },
+                "emp_sec_skill": {
+                  "type": "string"
+                },
+                "emp_status": {
+                  "type": "string"
+                },
+                "emp_is_lead": {
+                  "type": "boolean"
+                },
+                "emp_is_pm": {
+                  "type": "boolean"
+                },
+                "emp_experience": {
+                  "type": "integer"
+                },
+                "emp_relevant_experience": {
+                  "type": "integer"
+                },
+                "emp_total_allocation": {
+                  "type": "integer"
+                },
+                "emp_capacity": {
+                  "type": "integer"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -6315,13 +6678,17 @@
           "proj_client": {
             "required": [
               "id",
-              "client_name"
+              "client_name",
+              "client_location"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
               "client_name": {
+                "type": "string"
+              },
+              "client_location": {
                 "type": "string"
               },
               "published_at": {
@@ -6335,7 +6702,7 @@
               }
             }
           },
-          "proj_state": {
+          "proj_stage": {
             "type": "string",
             "default": "stage1",
             "enum": [
@@ -6352,7 +6719,15 @@
               "emp_email",
               "emp_contact_no",
               "emp_dob",
-              "emp_role"
+              "emp_department",
+              "emp_designation",
+              "emp_primary_skill",
+              "emp_status",
+              "emp_is_lead",
+              "emp_is_pm",
+              "emp_experience",
+              "emp_relevant_experience",
+              "emp_total_allocation"
             ],
             "properties": {
               "id": {
@@ -6370,7 +6745,7 @@
               "emp_dob": {
                 "type": "string"
               },
-              "emp_role": {
+              "emp_department": {
                 "type": "string",
                 "enum": [
                   "Developer",
@@ -6395,6 +6770,36 @@
               },
               "emp_pod": {
                 "type": "string"
+              },
+              "emp_designation": {
+                "type": "string"
+              },
+              "emp_primary_skill": {
+                "type": "string"
+              },
+              "emp_sec_skill": {
+                "type": "string"
+              },
+              "emp_status": {
+                "type": "string"
+              },
+              "emp_is_lead": {
+                "type": "boolean"
+              },
+              "emp_is_pm": {
+                "type": "boolean"
+              },
+              "emp_experience": {
+                "type": "integer"
+              },
+              "emp_relevant_experience": {
+                "type": "integer"
+              },
+              "emp_total_allocation": {
+                "type": "integer"
+              },
+              "emp_capacity": {
+                "type": "integer"
               },
               "published_at": {
                 "type": "string"
@@ -6456,6 +6861,17 @@
               }
             }
           },
+          "proj_resource_haves": {
+            "type": "integer",
+            "default": 0
+          },
+          "proj_resource_needs": {
+            "type": "integer",
+            "default": 0
+          },
+          "proj_scope_type": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -6465,9 +6881,12 @@
       "NewProject": {
         "required": [
           "proj_name",
-          "proj_state",
+          "proj_stage",
           "proj_start",
-          "proj_end"
+          "proj_end",
+          "proj_resource_haves",
+          "proj_resource_needs",
+          "proj_scope_type"
         ],
         "properties": {
           "proj_name": {
@@ -6482,7 +6901,7 @@
           "proj_client": {
             "type": "string"
           },
-          "proj_state": {
+          "proj_stage": {
             "type": "string",
             "default": "stage1",
             "enum": [
@@ -6504,6 +6923,17 @@
             "format": "date"
           },
           "proj_pod": {
+            "type": "string"
+          },
+          "proj_resource_haves": {
+            "type": "integer",
+            "default": 0
+          },
+          "proj_resource_needs": {
+            "type": "integer",
+            "default": 0
+          },
+          "proj_scope_type": {
             "type": "string"
           },
           "published_at": {

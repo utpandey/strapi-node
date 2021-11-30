@@ -25,7 +25,7 @@
     "proj_client": {
       "model": "client"
     },
-    "proj_state": {
+    "proj_stage": {
       "type": "enumeration",
       "enum": [
         "stage1",
@@ -50,6 +50,22 @@
     "proj_pod": {
       "via": "pod_proj",
       "model": "pod"
+    },
+    "proj_resource_haves": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "min": 0
+    },
+    "proj_resource_needs": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "min": 0
+    },
+    "proj_scope_type": {
+      "type": "string",
+      "required": true
     }
   }
 }

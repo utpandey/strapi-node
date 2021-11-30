@@ -29,7 +29,7 @@
       "type": "date",
       "required": true
     },
-    "emp_role": {
+    "emp_department": {
       "type": "enumeration",
       "enum": [
         "Developer",
@@ -52,6 +52,55 @@
     "emp_pod": {
       "model": "pod",
       "via": "pod_emp"
+    },
+    "emp_designation": {
+      "type": "string",
+      "required": true
+    },
+    "emp_primary_skill": {
+      "type": "string",
+      "required": true
+    },
+    "emp_sec_skill": {
+      "type": "string"
+    },
+    "emp_status": {
+      "type": "string",
+      "required": true
+    },
+    "emp_is_lead": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "emp_is_pm": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "emp_experience": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "emp_relevant_experience": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "emp_total_allocation": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "max": 100,
+      "min": 0
+    },
+    "emp_capacity": {
+      "type": "integer",
+      "default": 0,
+      "required": false,
+      "max": 100,
+      "min": 0
     }
   }
 }

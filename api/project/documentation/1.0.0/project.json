@@ -518,9 +518,12 @@
         "required": [
           "id",
           "proj_name",
-          "proj_state",
+          "proj_stage",
           "proj_start",
-          "proj_end"
+          "proj_end",
+          "proj_resource_haves",
+          "proj_resource_needs",
+          "proj_scope_type"
         ],
         "properties": {
           "id": {
@@ -538,7 +541,15 @@
                 "emp_email",
                 "emp_contact_no",
                 "emp_dob",
-                "emp_role"
+                "emp_department",
+                "emp_designation",
+                "emp_primary_skill",
+                "emp_status",
+                "emp_is_lead",
+                "emp_is_pm",
+                "emp_experience",
+                "emp_relevant_experience",
+                "emp_total_allocation"
               ],
               "properties": {
                 "id": {
@@ -556,7 +567,7 @@
                 "emp_dob": {
                   "type": "string"
                 },
-                "emp_role": {
+                "emp_department": {
                   "type": "string",
                   "enum": [
                     "Developer",
@@ -582,6 +593,36 @@
                 "emp_pod": {
                   "type": "string"
                 },
+                "emp_designation": {
+                  "type": "string"
+                },
+                "emp_primary_skill": {
+                  "type": "string"
+                },
+                "emp_sec_skill": {
+                  "type": "string"
+                },
+                "emp_status": {
+                  "type": "string"
+                },
+                "emp_is_lead": {
+                  "type": "boolean"
+                },
+                "emp_is_pm": {
+                  "type": "boolean"
+                },
+                "emp_experience": {
+                  "type": "integer"
+                },
+                "emp_relevant_experience": {
+                  "type": "integer"
+                },
+                "emp_total_allocation": {
+                  "type": "integer"
+                },
+                "emp_capacity": {
+                  "type": "integer"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -597,13 +638,17 @@
           "proj_client": {
             "required": [
               "id",
-              "client_name"
+              "client_name",
+              "client_location"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
               "client_name": {
+                "type": "string"
+              },
+              "client_location": {
                 "type": "string"
               },
               "published_at": {
@@ -617,7 +662,7 @@
               }
             }
           },
-          "proj_state": {
+          "proj_stage": {
             "type": "string",
             "default": "stage1",
             "enum": [
@@ -634,7 +679,15 @@
               "emp_email",
               "emp_contact_no",
               "emp_dob",
-              "emp_role"
+              "emp_department",
+              "emp_designation",
+              "emp_primary_skill",
+              "emp_status",
+              "emp_is_lead",
+              "emp_is_pm",
+              "emp_experience",
+              "emp_relevant_experience",
+              "emp_total_allocation"
             ],
             "properties": {
               "id": {
@@ -652,7 +705,7 @@
               "emp_dob": {
                 "type": "string"
               },
-              "emp_role": {
+              "emp_department": {
                 "type": "string",
                 "enum": [
                   "Developer",
@@ -677,6 +730,36 @@
               },
               "emp_pod": {
                 "type": "string"
+              },
+              "emp_designation": {
+                "type": "string"
+              },
+              "emp_primary_skill": {
+                "type": "string"
+              },
+              "emp_sec_skill": {
+                "type": "string"
+              },
+              "emp_status": {
+                "type": "string"
+              },
+              "emp_is_lead": {
+                "type": "boolean"
+              },
+              "emp_is_pm": {
+                "type": "boolean"
+              },
+              "emp_experience": {
+                "type": "integer"
+              },
+              "emp_relevant_experience": {
+                "type": "integer"
+              },
+              "emp_total_allocation": {
+                "type": "integer"
+              },
+              "emp_capacity": {
+                "type": "integer"
               },
               "published_at": {
                 "type": "string"
@@ -738,6 +821,17 @@
               }
             }
           },
+          "proj_resource_haves": {
+            "type": "integer",
+            "default": 0
+          },
+          "proj_resource_needs": {
+            "type": "integer",
+            "default": 0
+          },
+          "proj_scope_type": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -747,9 +841,12 @@
       "NewProject": {
         "required": [
           "proj_name",
-          "proj_state",
+          "proj_stage",
           "proj_start",
-          "proj_end"
+          "proj_end",
+          "proj_resource_haves",
+          "proj_resource_needs",
+          "proj_scope_type"
         ],
         "properties": {
           "proj_name": {
@@ -764,7 +861,7 @@
           "proj_client": {
             "type": "string"
           },
-          "proj_state": {
+          "proj_stage": {
             "type": "string",
             "default": "stage1",
             "enum": [
@@ -786,6 +883,17 @@
             "format": "date"
           },
           "proj_pod": {
+            "type": "string"
+          },
+          "proj_resource_haves": {
+            "type": "integer",
+            "default": 0
+          },
+          "proj_resource_needs": {
+            "type": "integer",
+            "default": 0
+          },
+          "proj_scope_type": {
             "type": "string"
           },
           "published_at": {
