@@ -530,6 +530,9 @@
           "client_location": {
             "type": "string"
           },
+          "client_account": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -546,6 +549,9 @@
             "type": "string"
           },
           "client_location": {
+            "type": "string"
+          },
+          "client_account": {
             "type": "string"
           },
           "published_at": {

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/29/2021 1:55:41 PM"
+    "x-generation-date": "12/02/2021 12:00:24 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5372,7 +5372,12 @@
               "proj_end",
               "proj_resource_haves",
               "proj_resource_needs",
-              "proj_scope_type"
+              "proj_group",
+              "proj_client_location",
+              "proj_status",
+              "proj_priority",
+              "proj_health",
+              "proj_resourcing_status"
             ],
             "properties": {
               "id": {
@@ -5417,7 +5422,81 @@
               "proj_resource_needs": {
                 "type": "integer"
               },
+              "proj_group": {
+                "type": "string",
+                "enum": [
+                  "techops",
+                  "labs",
+                  "green_pod",
+                  "blue_pod",
+                  "ey_pod",
+                  "design_pod",
+                  "white_pod",
+                  "unpod"
+                ]
+              },
+              "proj_client_location": {
+                "type": "string",
+                "enum": [
+                  "India",
+                  "US",
+                  "Europe",
+                  "Others"
+                ]
+              },
+              "proj_account": {
+                "type": "string"
+              },
+              "proj_status": {
+                "type": "string",
+                "enum": [
+                  "dev",
+                  "design",
+                  "support",
+                  "live",
+                  "requirement"
+                ]
+              },
+              "proj_priority": {
+                "type": "string",
+                "enum": [
+                  "P1",
+                  "P2",
+                  "P3",
+                  "P4"
+                ]
+              },
+              "proj_account_manager": {
+                "type": "string"
+              },
+              "proj_manager": {
+                "type": "string"
+              },
+              "proj_health": {
+                "type": "string",
+                "enum": [
+                  "okay",
+                  "not_okay",
+                  "good",
+                  "escalated"
+                ]
+              },
+              "proj_resourcing_status": {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "not_active"
+                ]
+              },
               "proj_scope_type": {
+                "type": "string",
+                "enum": [
+                  "fixed_bit",
+                  "time",
+                  "material"
+                ]
+              },
+              "proj_budget": {
                 "type": "string"
               },
               "published_at": {
@@ -5590,6 +5669,9 @@
           "client_location": {
             "type": "string"
           },
+          "client_account": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -5606,6 +5688,9 @@
             "type": "string"
           },
           "client_location": {
+            "type": "string"
+          },
+          "client_account": {
             "type": "string"
           },
           "published_at": {
@@ -5677,7 +5762,12 @@
                 "proj_end",
                 "proj_resource_haves",
                 "proj_resource_needs",
-                "proj_scope_type"
+                "proj_group",
+                "proj_client_location",
+                "proj_status",
+                "proj_priority",
+                "proj_health",
+                "proj_resourcing_status"
               ],
               "properties": {
                 "id": {
@@ -5722,7 +5812,81 @@
                 "proj_resource_needs": {
                   "type": "integer"
                 },
+                "proj_group": {
+                  "type": "string",
+                  "enum": [
+                    "techops",
+                    "labs",
+                    "green_pod",
+                    "blue_pod",
+                    "ey_pod",
+                    "design_pod",
+                    "white_pod",
+                    "unpod"
+                  ]
+                },
+                "proj_client_location": {
+                  "type": "string",
+                  "enum": [
+                    "India",
+                    "US",
+                    "Europe",
+                    "Others"
+                  ]
+                },
+                "proj_account": {
+                  "type": "string"
+                },
+                "proj_status": {
+                  "type": "string",
+                  "enum": [
+                    "dev",
+                    "design",
+                    "support",
+                    "live",
+                    "requirement"
+                  ]
+                },
+                "proj_priority": {
+                  "type": "string",
+                  "enum": [
+                    "P1",
+                    "P2",
+                    "P3",
+                    "P4"
+                  ]
+                },
+                "proj_account_manager": {
+                  "type": "string"
+                },
+                "proj_manager": {
+                  "type": "string"
+                },
+                "proj_health": {
+                  "type": "string",
+                  "enum": [
+                    "okay",
+                    "not_okay",
+                    "good",
+                    "escalated"
+                  ]
+                },
+                "proj_resourcing_status": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "not_active"
+                  ]
+                },
                 "proj_scope_type": {
+                  "type": "string",
+                  "enum": [
+                    "fixed_bit",
+                    "time",
+                    "material"
+                  ]
+                },
+                "proj_budget": {
                   "type": "string"
                 },
                 "published_at": {
@@ -6147,7 +6311,12 @@
                 "proj_end",
                 "proj_resource_haves",
                 "proj_resource_needs",
-                "proj_scope_type"
+                "proj_group",
+                "proj_client_location",
+                "proj_status",
+                "proj_priority",
+                "proj_health",
+                "proj_resourcing_status"
               ],
               "properties": {
                 "id": {
@@ -6192,7 +6361,81 @@
                 "proj_resource_needs": {
                   "type": "integer"
                 },
+                "proj_group": {
+                  "type": "string",
+                  "enum": [
+                    "techops",
+                    "labs",
+                    "green_pod",
+                    "blue_pod",
+                    "ey_pod",
+                    "design_pod",
+                    "white_pod",
+                    "unpod"
+                  ]
+                },
+                "proj_client_location": {
+                  "type": "string",
+                  "enum": [
+                    "India",
+                    "US",
+                    "Europe",
+                    "Others"
+                  ]
+                },
+                "proj_account": {
+                  "type": "string"
+                },
+                "proj_status": {
+                  "type": "string",
+                  "enum": [
+                    "dev",
+                    "design",
+                    "support",
+                    "live",
+                    "requirement"
+                  ]
+                },
+                "proj_priority": {
+                  "type": "string",
+                  "enum": [
+                    "P1",
+                    "P2",
+                    "P3",
+                    "P4"
+                  ]
+                },
+                "proj_account_manager": {
+                  "type": "string"
+                },
+                "proj_manager": {
+                  "type": "string"
+                },
+                "proj_health": {
+                  "type": "string",
+                  "enum": [
+                    "okay",
+                    "not_okay",
+                    "good",
+                    "escalated"
+                  ]
+                },
+                "proj_resourcing_status": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "not_active"
+                  ]
+                },
                 "proj_scope_type": {
+                  "type": "string",
+                  "enum": [
+                    "fixed_bit",
+                    "time",
+                    "material"
+                  ]
+                },
+                "proj_budget": {
                   "type": "string"
                 },
                 "published_at": {
@@ -6563,7 +6806,12 @@
           "proj_end",
           "proj_resource_haves",
           "proj_resource_needs",
-          "proj_scope_type"
+          "proj_group",
+          "proj_client_location",
+          "proj_status",
+          "proj_priority",
+          "proj_health",
+          "proj_resourcing_status"
         ],
         "properties": {
           "id": {
@@ -6689,6 +6937,9 @@
                 "type": "string"
               },
               "client_location": {
+                "type": "string"
+              },
+              "client_account": {
                 "type": "string"
               },
               "published_at": {
@@ -6869,7 +7120,281 @@
             "type": "integer",
             "default": 0
           },
+          "proj_group": {
+            "type": "string",
+            "enum": [
+              "techops",
+              "labs",
+              "green_pod",
+              "blue_pod",
+              "ey_pod",
+              "design_pod",
+              "white_pod",
+              "unpod"
+            ]
+          },
+          "proj_client_location": {
+            "type": "string",
+            "default": "India",
+            "enum": [
+              "India",
+              "US",
+              "Europe",
+              "Others"
+            ]
+          },
+          "proj_account": {
+            "type": "string"
+          },
+          "proj_status": {
+            "type": "string",
+            "default": "requirement",
+            "enum": [
+              "dev",
+              "design",
+              "support",
+              "live",
+              "requirement"
+            ]
+          },
+          "proj_priority": {
+            "type": "string",
+            "default": "P4",
+            "enum": [
+              "P1",
+              "P2",
+              "P3",
+              "P4"
+            ]
+          },
+          "proj_account_manager": {
+            "required": [
+              "id",
+              "emp_name",
+              "emp_email",
+              "emp_contact_no",
+              "emp_dob",
+              "emp_department",
+              "emp_designation",
+              "emp_primary_skill",
+              "emp_status",
+              "emp_is_lead",
+              "emp_is_pm",
+              "emp_experience",
+              "emp_relevant_experience",
+              "emp_total_allocation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "emp_name": {
+                "type": "string"
+              },
+              "emp_email": {
+                "type": "string"
+              },
+              "emp_contact_no": {
+                "type": "integer"
+              },
+              "emp_dob": {
+                "type": "string"
+              },
+              "emp_department": {
+                "type": "string",
+                "enum": [
+                  "Developer",
+                  "HR",
+                  "QA",
+                  "PM",
+                  "BA",
+                  "Designer"
+                ]
+              },
+              "emp_proj": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "emp_allocations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "emp_pod": {
+                "type": "string"
+              },
+              "emp_designation": {
+                "type": "string"
+              },
+              "emp_primary_skill": {
+                "type": "string"
+              },
+              "emp_sec_skill": {
+                "type": "string"
+              },
+              "emp_status": {
+                "type": "string"
+              },
+              "emp_is_lead": {
+                "type": "boolean"
+              },
+              "emp_is_pm": {
+                "type": "boolean"
+              },
+              "emp_experience": {
+                "type": "integer"
+              },
+              "emp_relevant_experience": {
+                "type": "integer"
+              },
+              "emp_total_allocation": {
+                "type": "integer"
+              },
+              "emp_capacity": {
+                "type": "integer"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "proj_manager": {
+            "required": [
+              "id",
+              "emp_name",
+              "emp_email",
+              "emp_contact_no",
+              "emp_dob",
+              "emp_department",
+              "emp_designation",
+              "emp_primary_skill",
+              "emp_status",
+              "emp_is_lead",
+              "emp_is_pm",
+              "emp_experience",
+              "emp_relevant_experience",
+              "emp_total_allocation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "emp_name": {
+                "type": "string"
+              },
+              "emp_email": {
+                "type": "string"
+              },
+              "emp_contact_no": {
+                "type": "integer"
+              },
+              "emp_dob": {
+                "type": "string"
+              },
+              "emp_department": {
+                "type": "string",
+                "enum": [
+                  "Developer",
+                  "HR",
+                  "QA",
+                  "PM",
+                  "BA",
+                  "Designer"
+                ]
+              },
+              "emp_proj": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "emp_allocations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "emp_pod": {
+                "type": "string"
+              },
+              "emp_designation": {
+                "type": "string"
+              },
+              "emp_primary_skill": {
+                "type": "string"
+              },
+              "emp_sec_skill": {
+                "type": "string"
+              },
+              "emp_status": {
+                "type": "string"
+              },
+              "emp_is_lead": {
+                "type": "boolean"
+              },
+              "emp_is_pm": {
+                "type": "boolean"
+              },
+              "emp_experience": {
+                "type": "integer"
+              },
+              "emp_relevant_experience": {
+                "type": "integer"
+              },
+              "emp_total_allocation": {
+                "type": "integer"
+              },
+              "emp_capacity": {
+                "type": "integer"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "proj_health": {
+            "type": "string",
+            "default": "okay",
+            "enum": [
+              "okay",
+              "not_okay",
+              "good",
+              "escalated"
+            ]
+          },
+          "proj_resourcing_status": {
+            "type": "string",
+            "default": "active",
+            "enum": [
+              "active",
+              "not_active"
+            ]
+          },
           "proj_scope_type": {
+            "type": "string",
+            "default": "fixed_bit",
+            "enum": [
+              "fixed_bit",
+              "time",
+              "material"
+            ]
+          },
+          "proj_budget": {
             "type": "string"
           },
           "published_at": {
@@ -6886,7 +7411,12 @@
           "proj_end",
           "proj_resource_haves",
           "proj_resource_needs",
-          "proj_scope_type"
+          "proj_group",
+          "proj_client_location",
+          "proj_status",
+          "proj_priority",
+          "proj_health",
+          "proj_resourcing_status"
         ],
         "properties": {
           "proj_name": {
@@ -6933,7 +7463,87 @@
             "type": "integer",
             "default": 0
           },
+          "proj_group": {
+            "type": "string",
+            "enum": [
+              "techops",
+              "labs",
+              "green_pod",
+              "blue_pod",
+              "ey_pod",
+              "design_pod",
+              "white_pod",
+              "unpod"
+            ]
+          },
+          "proj_client_location": {
+            "type": "string",
+            "default": "India",
+            "enum": [
+              "India",
+              "US",
+              "Europe",
+              "Others"
+            ]
+          },
+          "proj_account": {
+            "type": "string"
+          },
+          "proj_status": {
+            "type": "string",
+            "default": "requirement",
+            "enum": [
+              "dev",
+              "design",
+              "support",
+              "live",
+              "requirement"
+            ]
+          },
+          "proj_priority": {
+            "type": "string",
+            "default": "P4",
+            "enum": [
+              "P1",
+              "P2",
+              "P3",
+              "P4"
+            ]
+          },
+          "proj_account_manager": {
+            "type": "string"
+          },
+          "proj_manager": {
+            "type": "string"
+          },
+          "proj_health": {
+            "type": "string",
+            "default": "okay",
+            "enum": [
+              "okay",
+              "not_okay",
+              "good",
+              "escalated"
+            ]
+          },
+          "proj_resourcing_status": {
+            "type": "string",
+            "default": "active",
+            "enum": [
+              "active",
+              "not_active"
+            ]
+          },
           "proj_scope_type": {
+            "type": "string",
+            "default": "fixed_bit",
+            "enum": [
+              "fixed_bit",
+              "time",
+              "material"
+            ]
+          },
+          "proj_budget": {
             "type": "string"
           },
           "published_at": {

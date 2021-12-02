@@ -63,9 +63,96 @@
       "required": true,
       "min": 0
     },
-    "proj_scope_type": {
-      "type": "string",
+    "proj_group": {
+      "type": "enumeration",
+      "enum": [
+        "techops",
+        "labs",
+        "green_pod",
+        "blue_pod",
+        "ey_pod",
+        "design_pod",
+        "white_pod",
+        "unpod"
+      ],
       "required": true
+    },
+    "proj_client_location": {
+      "type": "enumeration",
+      "enum": [
+        "India",
+        "US",
+        "Europe",
+        "Others"
+      ],
+      "default": "India",
+      "required": true
+    },
+    "proj_account": {
+      "type": "string",
+      "required": false
+    },
+    "proj_status": {
+      "type": "enumeration",
+      "enum": [
+        "dev",
+        "design",
+        "support",
+        "live",
+        "requirement"
+      ],
+      "default": "requirement",
+      "required": true
+    },
+    "proj_priority": {
+      "type": "enumeration",
+      "enum": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "default": "P4",
+      "required": true
+    },
+    "proj_account_manager": {
+      "model": "employee"
+    },
+    "proj_manager": {
+      "model": "employee"
+    },
+    "proj_health": {
+      "type": "enumeration",
+      "enum": [
+        "okay",
+        "not_okay",
+        "good",
+        "escalated"
+      ],
+      "default": "okay",
+      "required": true
+    },
+    "proj_resourcing_status": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "not_active"
+      ],
+      "default": "active",
+      "required": true
+    },
+    "proj_scope_type": {
+      "type": "enumeration",
+      "enum": [
+        "fixed_bit",
+        "time",
+        "material"
+      ],
+      "default": "fixed_bit",
+      "required": false
+    },
+    "proj_budget": {
+      "type": "string"
     }
   }
 }

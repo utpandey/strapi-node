@@ -44,8 +44,8 @@ module.exports = ({ env }) => ({
         port: env.int('PG_DATABASE_PORT', 5432),
         database: env('PG_DATABASE_NAME', 'lrm-project'),
         username: env('PG_DATABASE_USERNAME', 'postgres'),
-        password: env('PG_DATABASE_PASSWORD', '0000'), // ssl: { rejectUnauthorized: env.bool('PG_DATABASE_SSL_SELF', false), // For self-signed certificates },
-        ssl: { rejectUnauthorized: env.bool('PG_DATABASE_SSL_SELF', false) }, // For self-signed certificates },
+        password: env('PG_DATABASE_PASSWORD', '0000'), 
+        ssl: { rejectUnauthorized: env.bool('PG_DATABASE_SSL_SELF', false),},
       },
       options: {
         ssl: env.bool('PG_DATABASE_SSL', false),

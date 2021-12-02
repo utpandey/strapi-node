@@ -571,7 +571,12 @@
                 "proj_end",
                 "proj_resource_haves",
                 "proj_resource_needs",
-                "proj_scope_type"
+                "proj_group",
+                "proj_client_location",
+                "proj_status",
+                "proj_priority",
+                "proj_health",
+                "proj_resourcing_status"
               ],
               "properties": {
                 "id": {
@@ -616,7 +621,81 @@
                 "proj_resource_needs": {
                   "type": "integer"
                 },
+                "proj_group": {
+                  "type": "string",
+                  "enum": [
+                    "techops",
+                    "labs",
+                    "green_pod",
+                    "blue_pod",
+                    "ey_pod",
+                    "design_pod",
+                    "white_pod",
+                    "unpod"
+                  ]
+                },
+                "proj_client_location": {
+                  "type": "string",
+                  "enum": [
+                    "India",
+                    "US",
+                    "Europe",
+                    "Others"
+                  ]
+                },
+                "proj_account": {
+                  "type": "string"
+                },
+                "proj_status": {
+                  "type": "string",
+                  "enum": [
+                    "dev",
+                    "design",
+                    "support",
+                    "live",
+                    "requirement"
+                  ]
+                },
+                "proj_priority": {
+                  "type": "string",
+                  "enum": [
+                    "P1",
+                    "P2",
+                    "P3",
+                    "P4"
+                  ]
+                },
+                "proj_account_manager": {
+                  "type": "string"
+                },
+                "proj_manager": {
+                  "type": "string"
+                },
+                "proj_health": {
+                  "type": "string",
+                  "enum": [
+                    "okay",
+                    "not_okay",
+                    "good",
+                    "escalated"
+                  ]
+                },
+                "proj_resourcing_status": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "not_active"
+                  ]
+                },
                 "proj_scope_type": {
+                  "type": "string",
+                  "enum": [
+                    "fixed_bit",
+                    "time",
+                    "material"
+                  ]
+                },
+                "proj_budget": {
                   "type": "string"
                 },
                 "published_at": {
