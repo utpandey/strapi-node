@@ -2,65 +2,45 @@
   "kind": "collectionType",
   "collectionName": "projects",
   "info": {
-    "name": "Project",
+    "name": "project",
     "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "proj_name": {
       "type": "string",
-      "required": true,
-      "unique": true
+      "required": true
     },
-    "proj_emps": {
-      "via": "emp_proj",
-      "collection": "employee",
-      "dominant": true
-    },
-    "proj_client": {
-      "model": "client"
-    },
-    "proj_stage": {
+    "proj_status": {
       "type": "enumeration",
       "enum": [
-        "stage1",
-        "stage2",
-        "stage3",
-        "stage4"
+        "dev",
+        "design",
+        "support",
+        "live",
+        "requirement"
       ],
-      "required": true,
-      "default": "stage1"
-    },
-    "proj_lead": {
-      "model": "employee"
+      "default": "requirement"
     },
     "proj_start": {
-      "type": "date",
-      "required": true
+      "type": "date"
     },
     "proj_end": {
-      "type": "date",
-      "required": true
-    },
-    "proj_pod": {
-      "via": "pod_proj",
-      "model": "pod"
+      "type": "date"
     },
     "proj_resource_haves": {
       "type": "integer",
       "default": 0,
-      "required": true,
       "min": 0
     },
     "proj_resource_needs": {
       "type": "integer",
       "default": 0,
-      "required": true,
       "min": 0
     },
     "proj_group": {
@@ -75,7 +55,7 @@
         "white_pod",
         "unpod"
       ],
-      "required": true
+      "default": "unpod"
     },
     "proj_client_location": {
       "type": "enumeration",
@@ -83,26 +63,12 @@
         "India",
         "US",
         "Europe",
-        "Others"
+        "others"
       ],
-      "default": "India",
-      "required": true
+      "default": "India"
     },
     "proj_account": {
-      "type": "string",
-      "required": false
-    },
-    "proj_status": {
-      "type": "enumeration",
-      "enum": [
-        "dev",
-        "design",
-        "support",
-        "live",
-        "requirement"
-      ],
-      "default": "requirement",
-      "required": true
+      "type": "string"
     },
     "proj_priority": {
       "type": "enumeration",
@@ -112,14 +78,7 @@
         "P3",
         "P4"
       ],
-      "default": "P4",
-      "required": true
-    },
-    "proj_account_manager": {
-      "model": "employee"
-    },
-    "proj_manager": {
-      "model": "employee"
+      "default": "P4"
     },
     "proj_health": {
       "type": "enumeration",
@@ -129,8 +88,7 @@
         "good",
         "escalated"
       ],
-      "default": "okay",
-      "required": true
+      "default": "okay"
     },
     "proj_resourcing_status": {
       "type": "enumeration",
@@ -138,21 +96,40 @@
         "active",
         "not_active"
       ],
-      "default": "active",
-      "required": true
+      "default": "active"
     },
     "proj_scope_type": {
       "type": "enumeration",
       "enum": [
-        "fixed_bit",
+        "fixed",
         "time",
         "material"
       ],
-      "default": "fixed_bit",
-      "required": false
+      "default": "fixed"
     },
     "proj_budget": {
       "type": "string"
+    },
+    "proj_pod": {
+      "via": "pod_proj",
+      "model": "pod"
+    },
+    "proj_lead": {
+      "model": "employee"
+    },
+    "proj_emps": {
+      "via": "emp_proj",
+      "collection": "employee",
+      "dominant": true
+    },
+    "proj_client": {
+      "model": "client"
+    },
+    "proj_account_manager": {
+      "model": "employee"
+    },
+    "proj_manager": {
+      "model": "employee"
     }
   }
 }

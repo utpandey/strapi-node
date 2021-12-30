@@ -8,30 +8,28 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "alloc_percentage": {
       "type": "integer",
       "default": 0,
-      "required": true,
       "max": 100,
-      "min": 0
+      "min": 0,
+      "required": true
     },
     "alloc_start": {
-      "type": "date",
-      "required": true
+      "type": "date"
     },
     "alloc_end": {
-      "type": "date",
-      "required": true
+      "type": "date"
     },
     "alloc_project": {
       "model": "project"
     },
     "alloc_emp": {
-      "via": "emp_allocations",
+      "via": "emp_alloc",
       "model": "employee"
     }
   }

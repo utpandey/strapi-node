@@ -516,20 +516,7 @@
     "schemas": {
       "Employee": {
         "required": [
-          "id",
-          "emp_name",
-          "emp_email",
-          "emp_contact_no",
-          "emp_dob",
-          "emp_department",
-          "emp_designation",
-          "emp_primary_skill",
-          "emp_status",
-          "emp_is_lead",
-          "emp_is_pm",
-          "emp_experience",
-          "emp_relevant_experience",
-          "emp_total_allocation"
+          "id"
         ],
         "properties": {
           "id": {
@@ -542,8 +529,7 @@
             "type": "string"
           },
           "emp_contact_no": {
-            "type": "integer",
-            "default": "0"
+            "type": "integer"
           },
           "emp_dob": {
             "type": "string",
@@ -551,32 +537,95 @@
           },
           "emp_department": {
             "type": "string",
+            "default": "Developer",
             "enum": [
-              "Developer",
               "HR",
-              "QA",
-              "PM",
               "BA",
-              "Designer"
+              "Developer",
+              "QA",
+              "UI"
             ]
+          },
+          "emp_designation": {
+            "type": "string"
+          },
+          "emp_primary_skill": {
+            "type": "string"
+          },
+          "emp_secondary_skill": {
+            "type": "string"
+          },
+          "emp_status": {
+            "type": "string"
+          },
+          "emp_is_lead": {
+            "type": "boolean",
+            "default": false
+          },
+          "emp_is_pm": {
+            "type": "boolean",
+            "default": false
+          },
+          "emp_experience": {
+            "type": "number",
+            "default": 0
+          },
+          "emp_relevant_experience": {
+            "type": "number",
+            "default": 0
+          },
+          "emp_total_allocation": {
+            "type": "integer",
+            "default": 0
+          },
+          "emp_capacity": {
+            "type": "integer",
+            "default": 0
+          },
+          "emp_pod": {
+            "required": [
+              "id",
+              "pod_name"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "pod_name": {
+                "type": "string"
+              },
+              "pod_emp": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "pod_proj": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "pod_lead": {
+                "type": "string"
+              },
+              "pod_second_lead": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           },
           "emp_proj": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "proj_name",
-                "proj_stage",
-                "proj_start",
-                "proj_end",
-                "proj_resource_haves",
-                "proj_resource_needs",
-                "proj_group",
-                "proj_client_location",
-                "proj_status",
-                "proj_priority",
-                "proj_health",
-                "proj_resourcing_status"
+                "proj_name"
               ],
               "properties": {
                 "id": {
@@ -585,34 +634,20 @@
                 "proj_name": {
                   "type": "string"
                 },
-                "proj_emps": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "proj_client": {
-                  "type": "string"
-                },
-                "proj_stage": {
+                "proj_status": {
                   "type": "string",
                   "enum": [
-                    "stage1",
-                    "stage2",
-                    "stage3",
-                    "stage4"
+                    "dev",
+                    "design",
+                    "support",
+                    "live",
+                    "requirement"
                   ]
-                },
-                "proj_lead": {
-                  "type": "string"
                 },
                 "proj_start": {
                   "type": "string"
                 },
                 "proj_end": {
-                  "type": "string"
-                },
-                "proj_pod": {
                   "type": "string"
                 },
                 "proj_resource_haves": {
@@ -640,21 +675,11 @@
                     "India",
                     "US",
                     "Europe",
-                    "Others"
+                    "others"
                   ]
                 },
                 "proj_account": {
                   "type": "string"
-                },
-                "proj_status": {
-                  "type": "string",
-                  "enum": [
-                    "dev",
-                    "design",
-                    "support",
-                    "live",
-                    "requirement"
-                  ]
                 },
                 "proj_priority": {
                   "type": "string",
@@ -664,12 +689,6 @@
                     "P3",
                     "P4"
                   ]
-                },
-                "proj_account_manager": {
-                  "type": "string"
-                },
-                "proj_manager": {
-                  "type": "string"
                 },
                 "proj_health": {
                   "type": "string",
@@ -690,7 +709,7 @@
                 "proj_scope_type": {
                   "type": "string",
                   "enum": [
-                    "fixed_bit",
+                    "fixed",
                     "time",
                     "material"
                   ]
@@ -698,7 +717,25 @@
                 "proj_budget": {
                   "type": "string"
                 },
-                "published_at": {
+                "proj_pod": {
+                  "type": "string"
+                },
+                "proj_lead": {
+                  "type": "string"
+                },
+                "proj_emps": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "proj_client": {
+                  "type": "string"
+                },
+                "proj_account_manager": {
+                  "type": "string"
+                },
+                "proj_manager": {
                   "type": "string"
                 },
                 "created_by": {
@@ -710,14 +747,12 @@
               }
             }
           },
-          "emp_allocations": {
+          "emp_alloc": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "alloc_percentage",
-                "alloc_start",
-                "alloc_end"
+                "alloc_percentage"
               ],
               "properties": {
                 "id": {
@@ -738,9 +773,6 @@
                 "alloc_emp": {
                   "type": "string"
                 },
-                "published_at": {
-                  "type": "string"
-                },
                 "created_by": {
                   "type": "string"
                 },
@@ -749,106 +781,10 @@
                 }
               }
             }
-          },
-          "emp_pod": {
-            "required": [
-              "id",
-              "pod_name"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "pod_name": {
-                "type": "string"
-              },
-              "pod_proj": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "pod_lead": {
-                "type": "string"
-              },
-              "pod_second_lead": {
-                "type": "string"
-              },
-              "pod_emp": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "emp_designation": {
-            "type": "string"
-          },
-          "emp_primary_skill": {
-            "type": "string"
-          },
-          "emp_sec_skill": {
-            "type": "string"
-          },
-          "emp_status": {
-            "type": "string"
-          },
-          "emp_is_lead": {
-            "type": "boolean",
-            "default": false
-          },
-          "emp_is_pm": {
-            "type": "boolean",
-            "default": false
-          },
-          "emp_experience": {
-            "type": "integer",
-            "default": 0
-          },
-          "emp_relevant_experience": {
-            "type": "integer",
-            "default": 0
-          },
-          "emp_total_allocation": {
-            "type": "integer",
-            "default": 0
-          },
-          "emp_capacity": {
-            "type": "integer",
-            "default": 0
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
       "NewEmployee": {
-        "required": [
-          "emp_name",
-          "emp_email",
-          "emp_contact_no",
-          "emp_dob",
-          "emp_department",
-          "emp_designation",
-          "emp_primary_skill",
-          "emp_status",
-          "emp_is_lead",
-          "emp_is_pm",
-          "emp_experience",
-          "emp_relevant_experience",
-          "emp_total_allocation"
-        ],
         "properties": {
           "emp_name": {
             "type": "string"
@@ -857,8 +793,7 @@
             "type": "string"
           },
           "emp_contact_no": {
-            "type": "integer",
-            "default": "0"
+            "type": "integer"
           },
           "emp_dob": {
             "type": "string",
@@ -866,29 +801,14 @@
           },
           "emp_department": {
             "type": "string",
+            "default": "Developer",
             "enum": [
-              "Developer",
               "HR",
-              "QA",
-              "PM",
               "BA",
-              "Designer"
+              "Developer",
+              "QA",
+              "UI"
             ]
-          },
-          "emp_proj": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "emp_allocations": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "emp_pod": {
-            "type": "string"
           },
           "emp_designation": {
             "type": "string"
@@ -896,7 +816,7 @@
           "emp_primary_skill": {
             "type": "string"
           },
-          "emp_sec_skill": {
+          "emp_secondary_skill": {
             "type": "string"
           },
           "emp_status": {
@@ -911,11 +831,11 @@
             "default": false
           },
           "emp_experience": {
-            "type": "integer",
+            "type": "number",
             "default": 0
           },
           "emp_relevant_experience": {
-            "type": "integer",
+            "type": "number",
             "default": 0
           },
           "emp_total_allocation": {
@@ -926,9 +846,20 @@
             "type": "integer",
             "default": 0
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "emp_pod": {
+            "type": "string"
+          },
+          "emp_proj": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "emp_alloc": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"

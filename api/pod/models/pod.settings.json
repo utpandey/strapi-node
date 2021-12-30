@@ -2,19 +2,23 @@
   "kind": "collectionType",
   "collectionName": "pods",
   "info": {
-    "name": "Pod",
+    "name": "pod",
     "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "pod_name": {
       "type": "string",
       "required": true
+    },
+    "pod_emp": {
+      "via": "emp_pod",
+      "collection": "employee"
     },
     "pod_proj": {
       "via": "proj_pod",
@@ -25,10 +29,6 @@
     },
     "pod_second_lead": {
       "model": "employee"
-    },
-    "pod_emp": {
-      "via": "emp_pod",
-      "collection": "employee"
     }
   }
 }

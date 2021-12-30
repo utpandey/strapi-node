@@ -516,9 +516,7 @@
     "schemas": {
       "Event": {
         "required": [
-          "id",
-          "event_flag",
-          "event_date"
+          "id"
         ],
         "properties": {
           "id": {
@@ -537,20 +535,7 @@
           },
           "event_owner": {
             "required": [
-              "id",
-              "emp_name",
-              "emp_email",
-              "emp_contact_no",
-              "emp_dob",
-              "emp_department",
-              "emp_designation",
-              "emp_primary_skill",
-              "emp_status",
-              "emp_is_lead",
-              "emp_is_pm",
-              "emp_experience",
-              "emp_relevant_experience",
-              "emp_total_allocation"
+              "id"
             ],
             "properties": {
               "id": {
@@ -571,28 +556,12 @@
               "emp_department": {
                 "type": "string",
                 "enum": [
-                  "Developer",
                   "HR",
-                  "QA",
-                  "PM",
                   "BA",
-                  "Designer"
+                  "Developer",
+                  "QA",
+                  "UI"
                 ]
-              },
-              "emp_proj": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "emp_allocations": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "emp_pod": {
-                "type": "string"
               },
               "emp_designation": {
                 "type": "string"
@@ -600,7 +569,7 @@
               "emp_primary_skill": {
                 "type": "string"
               },
-              "emp_sec_skill": {
+              "emp_secondary_skill": {
                 "type": "string"
               },
               "emp_status": {
@@ -613,10 +582,10 @@
                 "type": "boolean"
               },
               "emp_experience": {
-                "type": "integer"
+                "type": "number"
               },
               "emp_relevant_experience": {
-                "type": "integer"
+                "type": "number"
               },
               "emp_total_allocation": {
                 "type": "integer"
@@ -624,8 +593,20 @@
               "emp_capacity": {
                 "type": "integer"
               },
-              "published_at": {
+              "emp_pod": {
                 "type": "string"
+              },
+              "emp_proj": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "emp_alloc": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -634,18 +615,10 @@
                 "type": "string"
               }
             }
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
       "NewEvent": {
-        "required": [
-          "event_flag",
-          "event_date"
-        ],
         "properties": {
           "event_flag": {
             "type": "string",
@@ -660,10 +633,6 @@
           },
           "event_owner": {
             "type": "string"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           },
           "created_by": {
             "type": "string"

@@ -8,99 +8,88 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "emp_name": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "emp_email": {
-      "type": "email",
-      "required": true
+      "type": "email"
     },
     "emp_contact_no": {
       "type": "biginteger",
-      "default": "0",
-      "required": true
+      "max": "9999999999"
     },
     "emp_dob": {
-      "type": "date",
-      "required": true
+      "type": "date"
     },
     "emp_department": {
       "type": "enumeration",
       "enum": [
-        "Developer",
         "HR",
-        "QA",
-        "PM",
         "BA",
-        "Designer"
+        "Developer",
+        "QA",
+        "UI"
       ],
-      "required": true
-    },
-    "emp_proj": {
-      "via": "proj_emps",
-      "collection": "project"
-    },
-    "emp_allocations": {
-      "via": "alloc_emp",
-      "collection": "allocation"
-    },
-    "emp_pod": {
-      "model": "pod",
-      "via": "pod_emp"
+      "default": "Developer"
     },
     "emp_designation": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "emp_primary_skill": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
-    "emp_sec_skill": {
+    "emp_secondary_skill": {
       "type": "string"
     },
     "emp_status": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "emp_is_lead": {
       "type": "boolean",
-      "default": false,
-      "required": true
+      "default": false
     },
     "emp_is_pm": {
       "type": "boolean",
-      "default": false,
-      "required": true
+      "default": false
     },
     "emp_experience": {
-      "type": "integer",
+      "type": "decimal",
       "default": 0,
-      "required": true
+      "min": 0
     },
     "emp_relevant_experience": {
-      "type": "integer",
+      "type": "decimal",
       "default": 0,
-      "required": true
+      "min": 0
     },
     "emp_total_allocation": {
       "type": "integer",
       "default": 0,
-      "required": true,
-      "max": 100,
-      "min": 0
+      "min": 0,
+      "max": 100
     },
     "emp_capacity": {
       "type": "integer",
       "default": 0,
-      "required": false,
-      "max": 100,
-      "min": 0
+      "min": 0,
+      "max": 100
+    },
+    "emp_pod": {
+      "via": "pod_emp",
+      "model": "pod"
+    },
+    "emp_proj": {
+      "autoPopulate": false,
+      "via": "proj_emps",
+      "collection": "project"
+    },
+    "emp_alloc": {
+      "via": "alloc_emp",
+      "collection": "allocation"
     }
   }
 }

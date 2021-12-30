@@ -2,13 +2,12 @@
   "kind": "collectionType",
   "collectionName": "clients",
   "info": {
-    "name": "client",
-    "description": ""
+    "name": "client"
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -17,8 +16,7 @@
       "required": true
     },
     "client_location": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "client_account": {
       "type": "string"

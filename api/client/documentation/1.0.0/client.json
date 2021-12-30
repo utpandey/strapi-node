@@ -517,8 +517,7 @@
       "Client": {
         "required": [
           "id",
-          "client_name",
-          "client_location"
+          "client_name"
         ],
         "properties": {
           "id": {
@@ -532,17 +531,12 @@
           },
           "client_account": {
             "type": "string"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
       "NewClient": {
         "required": [
-          "client_name",
-          "client_location"
+          "client_name"
         ],
         "properties": {
           "client_name": {
@@ -553,10 +547,6 @@
           },
           "client_account": {
             "type": "string"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           },
           "created_by": {
             "type": "string"
